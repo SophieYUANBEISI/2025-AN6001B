@@ -1,35 +1,21 @@
-Welcome to AN6001 AI webapp
+
+
+
 
 <head>
-
-<meta name="viewport" content="width=device-
-
-width, initial-scale=1.0">
-
-<link rel="stylesheet" href="{{ url_for('static',
-
-filename='styles.css') }}">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
 </head>
 
+
+
 <body>
-
-<div class="container">
-
-    <h2>Welcome to AN6001 AI WebApp</h2>
-    
-    <form action="/" method="post">
-        <p>Please enter your name:</p>
-        <input type="text" name="q">
-        <input type="submit" value="Enter">
-    </form>
-    </form>
-
-
-</div>
-
+    <div class="container">
+        <h2>Welcome to AN6001 AI WebApp</h2>
+        <form action ="/main" method = "post">
+            <p>Please enter your name: </p >
+            <input type = "text" name = "q">
+            <input type = "submit" value = "Enter">
+        </form>
+    </div>
 </body>
-
-
-
-
