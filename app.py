@@ -16,13 +16,19 @@ def main():
 def dbs():
     return(render_template("dbs.html"))
 
-@app.route("/dbs_prediction",methods=["GET","POST"])
+
+@app.route("/dbs_prediction", methods=["GET", "POST"])
 def dbs_prediction():
-    q = float.form.get("q")
-    print(q)
-    model = joblib.load("/content/dbs.pkl")
-    r = model.predict([[q]])
-    return(render_template("dbs_prediction.html, r=r"))
+    if request.method == "GET":
+        # 比如直接访问这个网址时，随便返回一点东西
+        return "Please submit the form."
+
+    q_str = request.form.get("q")
+    print("q_str:", q_str)
+    q = float(q_str)
+    model = joblib.load("dbs.pkl")
+    r = model.predict([[q]])[0]
+    return render_template("dbs_prediction.html", r=r)
 
 if __name__ == "__main__":
     app.run()
